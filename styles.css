@@ -1,0 +1,22 @@
+#brightnessInput::-moz-range-progress {
+    background-color: #9147FF;
+    height: 6px;
+    border-radius: 10px;
+}
+#brightnessInput::-moz-range-track {
+    background-color: #ccc;
+    height: 6px;
+    border-radius: 10px;
+  }
+  #brightnessInput{
+      background-color: transparent;
+      cursor: pointer;
+  } 
+  #brightnessInput::-moz-range-thumb {
+  height:16px;
+   width: 16px;
+   border-radius: 50%;
+   border:2px solid  #000;
+}
+
+ 
