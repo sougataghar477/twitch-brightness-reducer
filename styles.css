@@ -18,5 +18,12 @@
    border-radius: 50%;
    border:2px solid  #000;
 }
-
- 
+.jc{
+    justify-content: space-between;
+}
+ .curtain{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0);
+    inset: 0;
+     
+ }

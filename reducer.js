@@ -1,62 +1,48 @@
- 
-    if (document.readyState = "interactive") {
- 
-        const settingsBtn = document.querySelector("[data-a-target='player-settings-button']");
-        const videoplayer = document.querySelector('.click-handler');
-        browser.storage.local.get()
-        .then((item)=>{
-            if('previousBrightness' in item ===false){
-                videoplayer.style.background=`rgba(0,0,0,0)`;
-                
-                 }
-                 videoplayer.style.background=`rgba(0,0,0,${item.previousBrightness})`;
-            });
-     
-        settingsBtn.addEventListener('click', () => {
-            setTimeout(() => {
-                const videoplayer = document.querySelector('.click-handler');
-                const brightnessElement = document.createElement("DIV");
-                const brightnessText = document.createElement("LABEL");
-                brightnessText.classList.add("yep");
-                const brightnessRange = document.createElement("INPUT");
-                brightnessRange.id="brightnessInput";
-                brightnessRange.type = "range";
-                
-    
-                brightnessRange.min = 0;
-                brightnessRange.max = 1;
-                brightnessRange.step = 0.01;
-                 
-                brightnessElement.classList.add("Layout-sc-nxg1ff-0", "WUWgS", "xAfNg");
-                
-                let gettingItem = browser.storage.local.get();
-                gettingItem.then(function(item){
-                    if('previousBrightness' in item ===false){
-                        brightnessRange.defaultValue=0;
-                        videoplayer.style.background=`rgba(0,0,0,${0})`;
-                         }
-                   brightnessRange.defaultValue=item.previousBrightness;
-                   videoplayer.style.background=`rgba(0,0,0,${item.previousBrightness})`;
-                });
-    
-                brightnessText.classList.add("fjMXDc");
-                brightnessText.textContent = "Brightness";
-                brightnessElement.appendChild(brightnessText);
-                brightnessElement.appendChild(brightnessRange);
-                const settingsPanel = document.querySelector("[data-a-target='player-settings-menu']");
-                settingsPanel.appendChild(brightnessElement);
-                brightnessRange.addEventListener("input", () => {
-    
-                    videoplayer.style.background = `rgba(0,0,0,${brightnessRange.value})`;
-                    browser.storage.local.set({
-                       previousBrightness:brightnessRange.value
-                      });
-                });
-    
-            }, 10)
-    
-    
-        })
-    
-    }
- 
+
+const settingsBtn = document.querySelector("[data-a-target='player-settings-button']");
+
+// brightnessRange starts here
+const brightnessRange = document.createElement("input");
+brightnessRange.type = "range";
+
+brightnessRange.id = "brightnessInput";
+
+brightnessRange.value = 0;
+
+brightnessRange.min = 0;
+
+brightnessRange.max = 1;
+
+brightnessRange.step = 0.01;
+
+const videoplayer = document.querySelector(".celebration__overlay");
+setTimeout(() => {
+    let curtain = document.createElement("div");
+    curtain.classList.add("curtain")
+    videoplayer.appendChild(curtain);
+    brightnessRange.addEventListener("input", (e) => {
+        curtain.style.backgroundColor = `rgba(0,0,0,${brightnessRange.value})`
+    })
+}, 60)
+// brightnessRange ends here
+
+// Creating the input range and appending to the menu when user clicks on the settings button
+
+settingsBtn.addEventListener("click", () => {
+
+    setTimeout(() => {
+        const menuContainer = document.querySelector("[data-a-target='player-settings-menu']");
+
+        setTimeout(() => {
+            let brightnessContainer = document.createElement("div");
+            brightnessContainer.classList.add('jHGpDy', 'jc');
+            let label = document.createElement('span');
+            label.textContent = 'Brightness';
+
+            brightnessContainer.appendChild(label);
+            brightnessContainer.appendChild(brightnessRange);
+            menuContainer.appendChild(brightnessContainer);
+        }, 100)
+    }, 200)
+})
+

@@ -1,21 +1,16 @@
 {
-
-    "manifest_version": 2,
-    "name": "Twitch Brightness Reducer",
-    "version": "3.0",
-  
-    "description": "Controls brightness of the videoplayer  in twitch.",
-    "permissions": [
-      "activeTab","storage"
-    ],
-  
-  
-    "content_scripts": [
-      {
-        "matches": ["https://www.twitch.tv/*"],
-        "js": ["reducer.js"],
-        "css":["styles.css"]
-      }
-    ]
-  
-  }
+  "manifest_version": 3,
+  "name": "Twitch Brightness Reducer",
+  "version": "3.0",
+  "description": "Controls brightness of the videoplayer in Twitch.",
+  "permissions": [
+    "activeTab", "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://www.twitch.tv/*"],
+      "js": ["reducer.js"],
+      "css": ["styles.css"]
+    }
+  ]
+}
