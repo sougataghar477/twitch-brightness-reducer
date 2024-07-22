@@ -12,5 +12,11 @@
       "js": ["reducer.js"],
       "css": ["styles.css"]
     }
-  ]
+  ],
+  "browser_specific_settings": {
+  "gecko": {
+    "id": "{e68a0cd8-b588-45c7-ace5-e880df455533}"
+  }
+}
+
 }
